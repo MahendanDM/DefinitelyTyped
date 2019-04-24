@@ -32,6 +32,7 @@ declare class WebSocket extends events.EventEmitter {
     OPEN: number;
     CLOSING: number;
     CLOSED: number;
+    id: number;
 
     onopen: (event: { target: WebSocket }) => void;
     onerror: (event: {error: any, message: string, type: string, target: WebSocket }) => void;
@@ -187,7 +188,7 @@ declare namespace WebSocket {
     // WebSocket Server
     class Server extends events.EventEmitter {
         options: ServerOptions;
-        path: string;
+        path: string;        
         clients: Set<WebSocket>;
 
         constructor(options?: ServerOptions, callback?: () => void);
